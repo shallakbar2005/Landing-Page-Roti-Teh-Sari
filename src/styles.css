@@ -1,0 +1,205 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Roti Teh Sari design system.
+ * Coklat Panggang + Cream Adonan. All colors in oklch.
+ */
+
+@theme inline {
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-card: var(--surface);
+  --color-card-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--border);
+  --color-ring: var(--primary);
+  --color-success: var(--success);
+  --color-success-foreground: var(--primary-foreground);
+  --color-error: var(--error);
+  --color-error-foreground: var(--primary-foreground);
+
+  --font-display: "Fraunces", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  --shadow-soft: 0px 4px 24px oklch(0.297 0.063 45 / 0.08);
+}
+
+:root {
+  --background: oklch(0.988 0.011 95); /* #FFFBF2 */
+  --foreground: oklch(0.297 0.063 45); /* #4A2511 */
+  --surface: oklch(1 0 0);
+  --primary: oklch(0.297 0.063 45);
+  --primary-foreground: oklch(1 0 0);
+  --accent: oklch(0.685 0.168 51); /* #E67E22 */
+  --accent-foreground: oklch(0.21 0 0);
+  --muted: oklch(0.966 0.014 88);
+  --muted-foreground: oklch(0.45 0.03 55);
+  --border: oklch(0.933 0.017 80); /* #F0E6D8 */
+  --ink: oklch(0.21 0 0); /* #1A1A1A */
+  --success: oklch(0.45 0.08 157); /* #2D6A4F */
+  --error: oklch(0.5 0.19 27); /* #B42318 */
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    font-size: 16px;
+    line-height: 26px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    color: var(--color-foreground);
+  }
+
+  h1 {
+    font-size: 36px;
+    line-height: 42px;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 28px;
+    line-height: 34px;
+    font-weight: 600;
+  }
+
+  h3 {
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 600;
+  }
+}
+
+@utility btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 48px;
+  border-radius: 12px;
+  padding-inline: 1.25rem;
+  font-weight: 700;
+  font-size: 16px;
+  transition:
+    background-color 0.18s ease,
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+@utility btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+@utility btn-outline {
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  border: 1.5px solid var(--color-primary);
+}
+
+@utility card-soft {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: 0px 4px 24px oklch(0.297 0.063 45 / 0.08);
+}
+
+@utility shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--color-muted) 25%,
+    var(--color-border) 50%,
+    var(--color-muted) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer-slide 1.4s infinite linear;
+}
+
+@keyframes shimmer-slide {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop-check {
+  0% {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@utility animate-sheet-up {
+  animation: sheet-up 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+@utility animate-pop-check {
+  animation: pop-check 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+/* hide scrollbar for horizontal testimonial rail */
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility input-field {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  padding: 0.75rem 1rem;
+  font-size: 16px;
+  color: var(--ink);
+  &:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 1px;
+  }
+}
