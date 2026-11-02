@@ -1,0 +1,18 @@
+
+LISENSI PENGGUNAAN SOURCE CODE - ROTI TEH SARI
+
+1. Lisensi Personal & Client Use
+Pembeli boleh menggunakan source code ini untuk 1 toko pribadi atau untuk 1 project client (jasa pembuatan website).
+
+2. DILARANG:
+- Menjual ulang, membagikan, atau upload ulang file ZIP mentah ini di Lynk.id, Shopee, Gumroad, dll.
+- Mengklaim sebagai karya 100% buatan sendiri tanpa modifikasi.
+
+3. DIPERBOLEHKAN:
+- Mengganti nama, warna, logo, produk, alamat.
+- Menambah fitur pembayaran Midtrans / Xendit.
+- Dipakai untuk portofolio.
+
+Pelanggaran akan dilaporkan.
+
+Terima kasih sudah membeli karya anak TI lokal!

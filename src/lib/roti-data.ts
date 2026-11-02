@@ -81,7 +81,7 @@ export const TESTIMONI = [
   { text: "Harganya jujur, rasanya kayak bakery mahal.", name: "Sandra", area: "Dago" },
 ];
 
-export const WA_NUMBER = "6281460466497";
+export const WA_NUMBER = "62.......";
 
 export const ONGKIR_GOSEND = 12000;
 

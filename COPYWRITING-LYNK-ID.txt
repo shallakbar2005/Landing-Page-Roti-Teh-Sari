@@ -1,0 +1,38 @@
+
+JUDUL UNTUK LYNK.ID:
+Source Code Landing Page Toko Roti Premium - Order via WhatsApp + Keranjang - TanStack Start
+
+DESKRIPSI:
+🚨 TEMPLATE PALING DICARI UMKM F&B BANDUNG!
+
+Bukan landing page abal-abal. Ini landing page toko roti yang sudah ada sistem keranjang + checkout langsung ke WhatsApp!
+
+🔥 FITUR:
+✅ Katalog Produk dengan status Ready / Habis Hari Ini (cocok jualan harian)
+✅ Keranjang Belanja + Hitung Total & Ongkir GoSend Otomatis
+✅ Checkout Form Lengkap (Nama, WA Validasi, Kecamatan, Alamat)
+✅ Tombol Bayar -> Halaman Sukses -> WA Otomatis terisi pesanan (Halo Teh Sari, saya sudah bayar pesanan #Roti123...)
+✅ Section Testimoni, Map Lokasi Antapani Bandung, Jam Buka
+✅ Responsive Mobile First - Desain hangat bikin lapar
+✅ SEO Ready (Title, Description, OG Image)
+
+💻 TECH STACK MODERN:
+TanStack Start + React + TypeScript + Tailwind CSS (bukan HTML jadul)
+Mudah diedit, cepat, SEO friendly.
+
+📦 YANG KAMU DAPAT:
+- Source Code Lengkap (.tsx)
+- File README cara edit & deploy ke Vercel gratis
+- Data toko terpusat di 1 file (ganti produk cukup edit JSON)
+- Lisensi Personal & Client Use (boleh dipakai untuk jasa bikin web client!)
+
+👥 COCOK UNTUK:
+- UMKM Roti, Kue, Donat, Coffee Shop
+- Mahasiswa TI yang mau jual jasa pembuatan web ke UMKM
+- Portofolio TA / Freelance
+
+DEMO: landing-page-roti-teh-sari.vercel.app
+
+Harga 45rb
+
+Beli sekarang, langsung bisa dipakai jualan hari ini!
