@@ -81,7 +81,8 @@ export const TESTIMONI = [
   { text: "Harganya jujur, rasanya kayak bakery mahal.", name: "Sandra", area: "Dago" },
 ];
 
-export const WA_NUMBER = "62.......";
+// Nomor diambil dari link WhatsApp di situs yang sedang live. Pastikan sesuai nomor Teh Sari.
+export const WA_NUMBER = "6281460466497";
 
 export const ONGKIR_GOSEND = 12000;
 

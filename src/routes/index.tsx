@@ -14,7 +14,68 @@ import {
   type Product,
 } from "@/lib/roti-data";
 
+// GANTI jika domain berubah (misalnya project Vercel baru atau domain sendiri).
+const SITE = "https://landing-page-roti-teh-sari-w2eg.vercel.app";
+
+function abs(path: string) {
+  return new URL(path, SITE).href;
+}
+
+function buildSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Bakery",
+        "@id": `${SITE}/#bakery`,
+        name: "Roti Teh Sari",
+        description:
+          "Roti rumahan fresh dari oven tiap jam 7 pagi. Tanpa pengawet, bisa ambil di toko atau antar GoSend.",
+        url: SITE,
+        image: abs(heroImg),
+        telephone: `+${WA_NUMBER}`,
+        priceRange: "Rp12.000 - Rp35.000",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Jl. Purwakarta No. 27, Antapani",
+          addressLocality: "Kota Bandung",
+          addressRegion: "Jawa Barat",
+          addressCountry: "ID",
+        },
+        openingHoursSpecification: {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          opens: "07:00",
+          closes: "17:00",
+        },
+      },
+      ...PRODUCTS.map((p) => ({
+        "@type": "Product",
+        name: p.name,
+        description: p.desc,
+        image: abs(p.image),
+        brand: { "@type": "Brand", name: "Roti Teh Sari" },
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "IDR",
+          price: p.price,
+          availability: p.ready ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+          url: SITE,
+          seller: { "@id": `${SITE}/#bakery` },
+        },
+      })),
+    ],
+  };
+}
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    links: [
+      { rel: "canonical", href: SITE },
+      { rel: "preload", as: "image", href: heroImg, type: "image/webp" },
+    ],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(buildSchema()) }],
+  }),
   component: RotiTehSari,
 });
 
@@ -27,7 +88,8 @@ function waLink(text: string) {
 
 function RotiTehSari() {
   const [screen, setScreen] = useState<Screen>("home");
-  const [loadingCatalog, setLoadingCatalog] = useState(true);
+  // Katalog langsung dirender (tanpa timer palsu) supaya cepat dan terbaca crawler.
+  const [loadingCatalog] = useState(false);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [showBottomSheet, setShowBottomSheet] = useState(false);
@@ -45,11 +107,6 @@ function RotiTehSari() {
   const [catatan, setCatatan] = useState("");
   const [metode, setMetode] = useState<"pickup" | "gosend">("pickup");
   const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    const t = setTimeout(() => setLoadingCatalog(false), 1200);
-    return () => clearTimeout(t);
-  }, []);
 
   useEffect(() => {
     document.body.style.overflow = showBottomSheet ? "hidden" : "";
@@ -406,6 +463,8 @@ function RotiTehSari() {
             src={heroImg}
             width={1200}
             height={912}
+            fetchPriority="high"
+            decoding="async"
             alt="Nampan kayu berisi aneka roti rumahan yang baru keluar dari oven"
             className="aspect-[4/3] w-full rounded-2xl object-cover shadow-[0px_4px_24px_rgba(74,37,17,0.08)]"
           />
@@ -473,6 +532,7 @@ function RotiTehSari() {
                           width={816}
                           height={816}
                           loading="lazy"
+                          decoding="async"
                           alt={p.alt}
                           className={`aspect-square w-full object-cover ${p.ready ? "" : "opacity-60 grayscale-[50%]"}`}
                         />
@@ -525,6 +585,7 @@ function RotiTehSari() {
                   width={1200}
                   height={688}
                   loading="lazy"
+                  decoding="async"
                   alt="Peta lokasi dapur Roti Teh Sari di Antapani, Bandung"
                   className="aspect-[16/9] w-full object-cover"
                 />
