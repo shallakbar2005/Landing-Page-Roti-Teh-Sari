@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ArrowLeft, Check, Clock, MapPin, Minus, Plus, ShoppingBag, X } from "lucide-react";
 
-import heroImg from "@/assets/hero-roti.jpg";
-import mapImg from "@/assets/map-antapani.jpg";
+import heroImg from "@/assets/hero-roti.webp";
+import mapImg from "@/assets/map-antapani.webp";
 import {
   KECAMATAN,
   ONGKIR_GOSEND,

@@ -1,9 +1,9 @@
-import donat from "@/assets/donat-coklat.jpg";
-import sourdough from "@/assets/sourdough.jpg";
-import rotiSusu from "@/assets/roti-susu.jpg";
-import cinnamon from "@/assets/cinnamon-roll.jpg";
-import croissant from "@/assets/croissant.jpg";
-import rotiPisang from "@/assets/roti-pisang.jpg";
+import donat from "@/assets/donat-coklat.webp";
+import sourdough from "@/assets/sourdough.webp";
+import rotiSusu from "@/assets/roti-susu.webp";
+import cinnamon from "@/assets/cinnamon-roll.webp";
+import croissant from "@/assets/croissant.webp";
+import rotiPisang from "@/assets/roti-pisang.webp";
 
 export type Product = {
   id: string;
